@@ -6,14 +6,14 @@
 -->
 <html>
 	<head>
-		<title>Preuve d'existence</title>
+		<title>Corentin SIMON</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
-	<body class="no-sidebar">
+	<body class="homepage">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -21,7 +21,8 @@
 					<div id="header" class="container">
 
 						<!-- Logo -->
-							<h1 id="logo"><a href="index.html">Preuve d'existence</a></h1>
+							<h1 id="logo"><a href="index.html">Corentin SIMON</a></h1>
+							<p>Elève en dernière année à l'<strong>ESILV</strong> (Ingénierie Financière, Fintech).</p>
 
 						<!-- Nav -->
 							<nav id="nav">
@@ -43,77 +44,68 @@
 					</div>
 				</div>
 
-			<!-- Main -->
-				<div id="main-wrapper">
-					<div id="main" class="container">
-						<div id="content">
+			<!-- Features -->
+				<div id="features-wrapper">
+					<section id="features" class="container">
+						<header>
+							<h2>Bienvenue!</h2>
+						</header>
+						<div class="row">
+							<div class="4u 12u(mobile)">
 
-							<div id ="app">
-							  <!-- Header -->
-							  <header v-if="!upload_visible">>
-							      <div class="container" id="maincontent" tabindex="-1">
-							          <div class="row">
-							              <div class="col-lg-12">
-							                  <div class="intro-text">
-							                      <h1 class="name">Blockizor</h1>
-							                      <hr class="star-light">
-							                      <span class="skills">Connectez vous à MetaMask</span>
-							                  </div>
-							                  <div>
-							                    <button type="button" class="btn btn-primary btn-lg buttonspace" v-on:click="display_upload">Enregistrer un texte !</button>
-							                  </div>
-							              </div>
-							          </div>
-							      </div>
-							  </header>
-							 
-							  <section id = "upload" v-if="upload_visible" v-cloak>
-							     <div class="container">
-							       <div class="row">
-							         <div class="col-lg-12 text-center">
-							           <div v-if="web3Missing">
-							             <p>
-							                Merci d'installer l'extension <a href="https://metamask.io/" target="_blank">Metamask</a> pour Google Chrome ou Firefox pour utiliser Blockizor
-							             </p>
-							           </div>
-							           <div v-if="!web3Missing">
-							             <div v-if="!hash">
-							               <h2>Drag and drop a file into the dropzone</h2>
-							               <hr class="star-light">
-							             </div> 
-							             <div v-bind:class="{ dragging: dragging }" v-if="!hash" id="drop_zone" ondrop="drop_handler(event);" ondragover="allowDrop(event)" ondragleave="dragout(event)">
-							               <strong>Drop Zone ...</strong>
-							             </div>
-							             <div v-if="hash"> 
-							               <h2>Détails du fichier</h2>
-							               <hr class="star-light">
-							               <table class="table">
-							                 <tr><th>Nom</th><td>{{ name }}<span v-if="name.length==32">...</span></td></tr>
-							                 <tr><th>Type de fichier</th><td>{{ type }}<span v-if="name.length==32">...</span></td></tr>
-							                 <tr><th>Taille</th><td>{{ size }} bytes</td></tr>
-							                 <tr><th>Dernière modification</th><td>{{ lastModified }}</td></tr>
-							                 <tr><th>Hash</th><td>{{ hash }}</td></tr>
-							               </table>
-							             </div>
-							             <div class="buttonspace" v-if="!animate">
-							               <button type="button" class="btn btn-primary btn-lg" :disabled="!hash || !name || hash.length!=66" v-on:click="create_contract">Enregistrer</button>
-							               <button type="button" class="btn btn-danger btn-lg"  v-on:click="cancel_upload">Annuler</button>
-							             </div>
-							           </div>
-							           <div v-if="animate">
-							             <p v-if="!error"><img src="img/animation.gif" /></p>
-							             <p v-if="!error"> Merci d'attendre que le contrat soit stocké dans la blockchain Ethereum. 
-							               Cela peut prendre jusqu'à une minute. Lorsque cela sera fait, vous serez redigié vers la page de confirmation.</p> 
-							             <p><a v-bind:href="etherscanLink" target="_new">Transaction Blockchain : {{ tx }}</a></p>
-							             <p v-if="error">Une erreur est survenue. L'erreur est : "{{ error }}".</p>
-							           </div>
-							         </div>
-							       </div>
-							    </div>
-							  </section>
+								<!-- Feature -->
+									<section>
+										<a href="#" class="image featured"><img src="images/cv2.jpg" alt="" /></a>
+										<header>
+											<h3>Qui suis-je?</h3>
+										</header>
+										<p>Je m'appelle <strong>Corentin SIMON</strong>, j'ai <strong>21 ans</strong>
+										et j'habite à Pontault-Combault en Seine-et-Marne. <br />
+										Je suis en <strong>5ème</strong> et dernière année à l'<strong>ESILV</strong>, 
+										en majeure <strong>Ingénierie Financière</strong> option <strong>Fintech</strong>.</p>
+									</section>
+
 							</div>
-							
+							<div class="4u 12u(mobile)">
+
+								<!-- Feature -->
+									<section>
+										<a href="#" class="image featured"><img src="images/esilv.jpg" alt="" /></a>
+										<header>
+											<h3>Pourquoi ce site?</h3>
+										</header>
+										<p>Dans le cadre de l'option <strong>Fintech</strong> à l'<strong>ESILV</strong>, 
+										je travaille sur les technologies blockchain <strong>Bitcoin</strong> et <strong>Ethereum</strong>.
+										Ce site est donc pour illustrer ces différents travaux.</p>
+									</section>
+
+							</div>
+							<div class="4u 12u(mobile)">
+
+								<!-- Feature -->
+									<section>
+										<a href="#" class="image featured"><img src="images/ethvsbtc.jpg" alt="" /></a>
+										<header>
+											<h3>Quel contenu?</h3>
+										</header>
+										<p>Un <strong>explorateur</strong> de blockchain <strong>Bitcoin</strong> et <strong>Monero</strong>, 
+										des informations sur mon <strong>token</strong> et <strong>ICO</strong> sur <strong>Ropsten</strong>, 
+										la <strong>preuve d'existence</strong> et une étude statistiques sur le <strong>bitcoin</strong>.
+									</section>
+
+							</div>
 						</div>
+					</section>
+				</div>
+
+			<!-- Banner -->
+				<div id="banner-wrapper">
+					<div class="inner">
+						<section id="banner" class="container">
+							<p>The main advantage of blockchain technology is supposed to be that it's more secure,
+							but new technologies are generally hard for people to trust, and this paradox can't really be avoided.</p>
+							<i>Vitalik BUTERIN</i>
+						</section>
 					</div>
 				</div>
 
