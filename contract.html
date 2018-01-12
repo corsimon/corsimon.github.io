@@ -1,90 +1,204 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blockizor - Blockchain Notarisation Service</title>
+<!DOCTYPE HTML>
+<!--
+	Strongly Typed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Preuve d'existence</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body id="page-top" class="index">
+		<div id="page-wrapper">
 
-    <!-- Bootstrap Core CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div id="header" class="container">
 
-    <!-- Theme CSS -->
-    <link href="css/freelancer.css" rel="stylesheet">
+						<!-- Logo -->
+							<h1 id="logo"><a href="index.html">Preuve d'existence</a></h1>
 
-    <!-- Nottario CSS -->
-    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li><a class="icon fa-home" href="index.html"><span>Accueil</span></a></li>
+									<li>
+										<a href="#" class="icon fa-search"><span>Explorateur</span></a>
+										<ul>
+											<li><a href="exploreurBTC.html">Bitcoin</a></li>
+											<li><a href="exploreurXMR.html">Monero</a></li>
+										</ul>
+									</li>
+									<li><a class="icon fa-money" href="token.html"><span>Token/ICO</span></a></li>
+									<li><a class="icon fa-certificate" href="preuve.html"><span>Preuve d'existence</span></a></li>
+									<li><a class="icon fa-bar-chart-o" href="etudeBTC.html"><span>Etude bitcoin</span></a></li>
+								</ul>
+							</nav>
 
-    <!-- Custom Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+					</div>
+				</div>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
-<body id="page-top" class="index">
-  <div id ="app">
-    <!-- Header -->
-    <header>
-        <div class="container" id="maincontent" tabindex="-1">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="intro-text">
-                        <h1 class="name">Blockizor</h1>
-                        <hr class="star-light">
-                        <span class="skills">Certificate of Notarisation</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-   
-    <section id = "upload" v-if="!hash || hash!='0x'">
-       <div class="container">
-         <div class="row">
-           <div class="col-lg-12 text-center">
-             <div v-if="web3Missing">
-               <p>Please install the Metamask Plugin or Mist Browser to use Nottario</p>
-             </div>
-             <div v-if="!web3Missing">
-               <table  class="table">
-                 <tr><th>Nom</th><td>{{ name }}<span v-if="name.length==32">...</span></td></tr>
-                 <tr><th>Type de fichier</th><td>{{ type }}<span v-if="name.length==32">...</span></td></tr>
-                 <tr><th>Taille</th><td>{{ size }} bytes</td></tr>
-                 <tr><th>Dernière modification</th><td>{{ lastModified }}</td></tr>
-                 <tr><th>Hash</th><td>{{ hash }}</td></tr>
-                 <tr><th>Enregistré dans la blockchain le </th><td>{{ timestamp }}</td></tr>
-               </table>
-               <h2>Pour vérifier l'authenticité de votre fichier, glissez le dans la zone ci-dessous</h2>
-               <hr class="star-light">
-               <div id="drop_zone" v-bind:class="{ dragging: dragging }" ondrop="verify_file(event);" ondragover="allowDrop(event)" ondragleave="dragout(event)">
-                 <strong>Zone de dépôt ...</strong>
-               </div>
+			<!-- Main -->
+				<div id="main-wrapper">
+					<div id="main" class="container">
+						<div id="content">
 
-               <div v-if="verified && droppedHash">VERIFIED</div>
-               <div v-if="!verified && droppedHash">NOT VERIFIED</div>
+							<div id ="app">
+						    <!-- Header -->
+						    <header>
+						        <div class="container" id="maincontent" tabindex="-1">
+						            <div class="row">
+						                <div class="col-lg-12">
+						                    <div class="intro-text">
+						                        <h1 class="name">PoE (Proof of Existence)</h1>
+						                        <hr class="star-light">
+						                        <span class="skills">Certificat de Notarisation</span>
+						                    </div>
+						                </div>
+						            </div>
+						        </div>
+						    </header>
+						   
+						    <section id = "upload" v-if="!hash || hash!='0x'">
+						       <div class="container">
+						         <div class="row">
+						           <div class="col-lg-12 text-center">
+						             <div v-if="web3Missing">
+						             	<p>Installez le plugin Metamask ou Mist Browser pour utiliser ce module</p>
+						             </div>
+						             <div v-if="!web3Missing">
+						               <table  class="table">
+						                 <tr><th>Nom</th><td>{{ name }}<span v-if="name.length==32">...</span></td></tr>
+						                 <tr><th>Type de fichier</th><td>{{ type }}<span v-if="name.length==32">...</span></td></tr>
+						                 <tr><th>Taille</th><td>{{ size }} bytes</td></tr>
+						                 <tr><th>Dernière modification</th><td>{{ lastModified }}</td></tr>
+						                 <tr><th>Hash</th><td>{{ hash }}</td></tr>
+						                 <tr><th>Enregistré dans la blockchain le </th><td>{{ timestamp }}</td></tr>
+						               </table>
+						               <h2>Pour vérifier l'authenticité de votre fichier, glissez le dans la zone ci-dessous</h2>
+						               <hr class="star-light">
+						               <div id="drop_zone" v-bind:class="{ dragging: dragging }" ondrop="verify_file(event);" ondragover="allowDrop(event)" ondragleave="dragout(event)">
+						                 <strong>Zone de dépôt ...</strong>
+						               </div>
 
-             </div>
-           </div>
-         </div>
-      </div>
-    </section>
+						               <div v-if="verified && droppedHash">VERIFIED</div>
+						               <div v-if="!verified && droppedHash">NOT VERIFIED</div>
 
-    <section v-if="hash=='0x'">
-      <div class="alert alert-danger">Invalid contract address</div>
-    </section>
-</div>  
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+						             </div>
+						           </div>
+						         </div>
+						      </div>
+						    </section>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://unpkg.com/vue"></script>
-    <script src="js/solidity.js"></script>
-    <script src="js/contract.js"></script>
-</body>
+						    <section v-if="hash=='0x'">
+						      <div class="alert alert-danger">Invalid contract address</div>
+						    </section>
+						</div>  
+							
+						</div>
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<div id="footer-wrapper">
+					<div id="footer" class="container">
+						<header>
+							<h2>Questions / commentaires ? <strong>Rentrons en contact:</strong></h2>
+						</header>
+						<div class="row">
+							<div class="6u 12u(mobile)">
+								<section>
+									<form method="post" action="#">
+										<div class="row 50%">
+											<div class="6u 12u(mobile)">
+												<input name="name" placeholder="Name" type="text" />
+											</div>
+											<div class="6u 12u(mobile)">
+												<input name="email" placeholder="Email" type="text" />
+											</div>
+										</div>
+										<div class="row 50%">
+											<div class="12u">
+												<textarea name="message" placeholder="Message"></textarea>
+											</div>
+										</div>
+										<div class="row 50%">
+											<div class="12u">
+												<a href="#" class="form-button-submit button icon fa-envelope">Send Message</a>
+											</div>
+										</div>
+									</form>
+								</section>
+							</div>
+							<div class="6u 12u(mobile)">
+								<section>
+									<p>
+									</p>
+									<div class="row">
+										<div class="6u 12u(mobile)">
+											<ul class="icons">
+												<li class="icon fa-home">
+													7 rue Condorcet<br />
+													Pontault-Combault, 77340<br />
+													France
+												</li>
+												<li class="icon fa-phone">
+													(+33 6) 80 47 79 41
+												</li>
+												<li class="icon fa-envelope">
+													<a href="#">corentin.simon@devinci.fr</a>
+												</li>
+											</ul>
+										</div>
+										<div class="6u 12u(mobile)">
+											<ul class="icons">
+												<li class="icon fa-info-circle">
+													<a href="https://www.esilv.fr/formations/options-5e-annee/fintech/">ESILV</a>
+												</li>
+												<li class="icon fa-linkedin">
+													<a href="https://www.linkedin.com/in/corentin-s-99b12183/">linkedin.com/corentin-s</a>
+												</li>
+												<li class="icon fa-instagram">
+													<a href="#">instagram.com/cooorentin</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</section>
+							</div>
+						</div>
+					</div>
+					<div id="copyright" class="container">
+						<ul class="links">
+							<li>&copy; Corentin SIMON. All rights reserved.</li><li>ESILV 2018</li>
+						</ul>
+					</div>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/skel-viewport.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+			<!-- jQuery -->
+			  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+
+			  <!-- Bootstrap Core JavaScript -->
+			  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+			  <script src="https://unpkg.com/vue"></script>
+			  <script src="js/solidity.js"></script>
+			  <script src="js/nottario.js"></script>
+
+	</body>
 </html>
