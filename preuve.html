@@ -96,6 +96,7 @@
 							                 <tr><th>Hash</th><td>{{ hash }}</td></tr>
 							               </table>
 							             </div>
+							             <br>
 							             <div class="buttonspace" v-if="!animate">
 							               <button type="button" class="btn btn-primary btn-lg" :disabled="!hash || !name || hash.length!=66" v-on:click="create_contract">Enregistrer</button>
 							               <button type="button" class="btn btn-danger btn-lg"  v-on:click="cancel_upload">Annuler</button>
