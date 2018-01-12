@@ -1,106 +1,200 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blockizor - Blockchain Notarisation Service</title>
+<!DOCTYPE HTML>
+<!--
+	Strongly Typed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Corentin SIMON</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body class="homepage">
+		<div id="page-wrapper">
 
-  <!-- Bootstrap Core CSS -->
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div id="header" class="container">
 
-  <!-- Theme CSS -->
-  <link href="css/freelancer.css" rel="stylesheet">
+						<!-- Logo -->
+							<h1 id="logo"><a href="index.html">Corentin SIMON</a></h1>
+							<p>Elève en dernière année à l'<strong>ESILV</strong> (Ingénierie Financière, Fintech).</p>
 
-  <!-- Nottario CSS -->
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li><a class="icon fa-home" href="index.html"><span>Accueil</span></a></li>
+									<li>
+										<a href="#" class="icon fa-search"><span>Explorateur</span></a>
+										<ul>
+											<li><a href="exploreurBTC.html">Bitcoin</a></li>
+											<li><a href="exploreurXMR.html">Monero</a></li>
+										</ul>
+									</li>
+									<li><a class="icon fa-money" href="token.html"><span>Token/ICO</span></a></li>
+									<li><a class="icon fa-certificate" href="preuve.html"><span>Preuve d'existence</span></a></li>
+									<li><a class="icon fa-bar-chart-o" href="etudeBTC.html"><span>Etude bitcoin</span></a></li>
+								</ul>
+							</nav>
 
-  <!-- Custom Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+					</div>
+				</div>
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
+			<!-- Features -->
+				<div id="features-wrapper">
+					<section id="features" class="container">
+						<header>
+							<h2>Bienvenue!</h2>
+						</header>
+						<div class="row">
+							<div class="4u 12u(mobile)">
 
-</head>
+								<!-- Feature -->
+									<section>
+										<a href="#" class="image featured"><img src="images/cv2.jpg" alt="" /></a>
+										<header>
+											<h3>Qui suis-je?</h3>
+										</header>
+										<p>Je m'appelle <strong>Corentin SIMON</strong>, j'ai <strong>21 ans</strong>
+										et j'habite à Pontault-Combault en Seine-et-Marne. <br />
+										Je suis en <strong>5ème</strong> et dernière année à l'<strong>ESILV</strong>, 
+										en majeure <strong>Ingénierie Financière</strong> option <strong>Fintech</strong>.</p>
+									</section>
 
-<body id="page-top" class="index">
-<div id ="app">
-  <!-- Header -->
-  <header v-if="!upload_visible">>
-      <div class="container" id="maincontent" tabindex="-1">
-          <div class="row">
-              <div class="col-lg-12">
-                  <div class="intro-text">
-                      <h1 class="name">Blockizor</h1>
-                      <hr class="star-light">
-                      <span class="skills">Connectez vous à MetaMask</span>
-                  </div>
-                  <div>
-                    <button type="button" class="btn btn-primary btn-lg buttonspace" v-on:click="display_upload">Enregistrer un texte !</button>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </header>
- 
-  <section id = "upload" v-if="upload_visible" v-cloak>
-     <div class="container">
-       <div class="row">
-         <div class="col-lg-12 text-center">
-           <div v-if="web3Missing">
-             <p>
-                Merci d'installer l'extension <a href="https://metamask.io/" target="_blank">Metamask</a> pour Google Chrome ou Firefox pour utiliser Blockizor
-             </p>
-           </div>
-           <div v-if="!web3Missing">
-             <div v-if="!hash">
-               <h2>Drag and drop a file into the dropzone</h2>
-               <hr class="star-light">
-             </div> 
-             <div v-bind:class="{ dragging: dragging }" v-if="!hash" id="drop_zone" ondrop="drop_handler(event);" ondragover="allowDrop(event)" ondragleave="dragout(event)">
-               <strong>Drop Zone ...</strong>
-             </div>
-             <div v-if="hash"> 
-               <h2>Détails du fichier</h2>
-               <hr class="star-light">
-               <table class="table">
-                 <tr><th>Nom</th><td>{{ name }}<span v-if="name.length==32">...</span></td></tr>
-                 <tr><th>Type de fichier</th><td>{{ type }}<span v-if="name.length==32">...</span></td></tr>
-                 <tr><th>Taille</th><td>{{ size }} bytes</td></tr>
-                 <tr><th>Dernière modification</th><td>{{ lastModified }}</td></tr>
-                 <tr><th>Hash</th><td>{{ hash }}</td></tr>
-               </table>
-             </div>
-             <div class="buttonspace" v-if="!animate">
-               <button type="button" class="btn btn-primary btn-lg" :disabled="!hash || !name || hash.length!=66" v-on:click="create_contract">Enregistrer</button>
-               <button type="button" class="btn btn-danger btn-lg"  v-on:click="cancel_upload">Annuler</button>
-             </div>
-           </div>
-           <div v-if="animate">
-             <p v-if="!error"><img src="img/animation.gif" /></p>
-             <p v-if="!error"> Merci d'attendre que le contrat soit stocké dans la blockchain Ethereum. 
-               Cela peut prendre jusqu'à une minute. Lorsque cela sera fait, vous serez redigié vers la page de confirmation.</p> 
-             <p><a v-bind:href="etherscanLink" target="_new">Transaction Blockchain : {{ tx }}</a></p>
-             <p v-if="error">Une erreur est survenue. L'erreur est : "{{ error }}".</p>
-           </div>
-         </div>
-       </div>
-    </div>
-  </section>
-</div>
+							</div>
+							<div class="4u 12u(mobile)">
 
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+								<!-- Feature -->
+									<section>
+										<a href="#" class="image featured"><img src="images/esilv.jpg" alt="" /></a>
+										<header>
+											<h3>Pourquoi ce site?</h3>
+										</header>
+										<p>Dans le cadre de l'option <strong>Fintech</strong> à l'<strong>ESILV</strong>, 
+										je travaille sur les technologies blockchain <strong>Bitcoin</strong> et <strong>Ethereum</strong>.
+										Ce site est donc pour illustrer ces différents travaux.</p>
+									</section>
 
-  <!-- Bootstrap Core JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://unpkg.com/vue"></script>
-  <script src="js/solidity.js"></script>
-  <script src="js/nottario.js"></script>
-</body>
+							</div>
+							<div class="4u 12u(mobile)">
+
+								<!-- Feature -->
+									<section>
+										<a href="#" class="image featured"><img src="images/ethvsbtc.jpg" alt="" /></a>
+										<header>
+											<h3>Quel contenu?</h3>
+										</header>
+										<p>Un <strong>explorateur</strong> de blockchain <strong>Bitcoin</strong> et <strong>Monero</strong>, 
+										des informations sur mon <strong>token</strong> et <strong>ICO</strong> sur <strong>Ropsten</strong>, 
+										la <strong>preuve d'existence</strong> et une étude statistiques sur le <strong>bitcoin</strong>.
+									</section>
+
+							</div>
+						</div>
+					</section>
+				</div>
+
+			<!-- Banner -->
+				<div id="banner-wrapper">
+					<div class="inner">
+						<section id="banner" class="container">
+							<p>The main advantage of blockchain technology is supposed to be that it's more secure,
+							but new technologies are generally hard for people to trust, and this paradox can't really be avoided.</p>
+							<i>Vitalik BUTERIN</i>
+						</section>
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<div id="footer-wrapper">
+					<div id="footer" class="container">
+						<header>
+							<h2>Questions / commentaires ? <strong>Rentrons en contact:</strong></h2>
+						</header>
+						<div class="row">
+							<div class="6u 12u(mobile)">
+								<section>
+									<form method="post" action="#">
+										<div class="row 50%">
+											<div class="6u 12u(mobile)">
+												<input name="name" placeholder="Name" type="text" />
+											</div>
+											<div class="6u 12u(mobile)">
+												<input name="email" placeholder="Email" type="text" />
+											</div>
+										</div>
+										<div class="row 50%">
+											<div class="12u">
+												<textarea name="message" placeholder="Message"></textarea>
+											</div>
+										</div>
+										<div class="row 50%">
+											<div class="12u">
+												<a href="#" class="form-button-submit button icon fa-envelope">Send Message</a>
+											</div>
+										</div>
+									</form>
+								</section>
+							</div>
+							<div class="6u 12u(mobile)">
+								<section>
+									<p>
+									</p>
+									<div class="row">
+										<div class="6u 12u(mobile)">
+											<ul class="icons">
+												<li class="icon fa-home">
+													7 rue Condorcet<br />
+													Pontault-Combault, 77340<br />
+													France
+												</li>
+												<li class="icon fa-phone">
+													(+33 6) 80 47 79 41
+												</li>
+												<li class="icon fa-envelope">
+													<a href="#">corentin.simon@devinci.fr</a>
+												</li>
+											</ul>
+										</div>
+										<div class="6u 12u(mobile)">
+											<ul class="icons">
+												<li class="icon fa-info-circle">
+													<a href="https://www.esilv.fr/formations/options-5e-annee/fintech/">ESILV</a>
+												</li>
+												<li class="icon fa-linkedin">
+													<a href="https://www.linkedin.com/in/corentin-s-99b12183/">linkedin.com/corentin-s</a>
+												</li>
+												<li class="icon fa-instagram">
+													<a href="#">instagram.com/cooorentin</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</section>
+							</div>
+						</div>
+					</div>
+					<div id="copyright" class="container">
+						<ul class="links">
+							<li>&copy; Corentin SIMON. All rights reserved.</li><li>ESILV 2018</li>
+						</ul>
+					</div>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/skel-viewport.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
