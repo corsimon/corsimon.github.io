@@ -13,8 +13,8 @@ xmlhttp.open("GET", "https://api.blockcypher.com/v1/btc/main", true);
 xmlhttp.send();
 
 $('#form1').on('submit', function(event) {
-    var isAddress = /^[0-9a-zA-Z]{34}$/.test('#adresse');
-    alert(isAddress);
+    //var isAddress = /^[0-9a-zA-Z]{34}$/.test('#adresse');
+    //alert(isAddress);
     event.preventDefault();
     var input = $('#adresse').val();
     $.ajax("https://api.blockcypher.com/v1/btc/main/addrs/" + input, {
@@ -41,8 +41,8 @@ $('#form1').on('submit', function(event) {
 }); // end submit event
 
 $('#form2').on('submit', function(event) {
-    var isAddress = /^[0-9a-zA-Z]{64}$/.test('#hashT');
-    alert(isAddress);
+    //var isAddress = /^[0-9a-zA-Z]{64}$/.test('#hashT');
+    //alert(isAddress);
     event.preventDefault();
     var input = $('#hashT').val();
     $.ajax("https://api.blockcypher.com/v1/btc/main/txs/" + input, {
@@ -54,7 +54,8 @@ $('#form2').on('submit', function(event) {
                 '<p><u>Fees:</u> ' + result.fees + '</p>' +
                 '<p><u>Taille:</u> ' + result.size + '</p>' +
                 '<p><u>Date de confirmation:</u> ' + result.confirmed + '</p>' +
-                '<p><u>Nombre de confirmations:</u> ' + result.confirmations + '</p>'
+                '<p><u>Nombre de confirmations:</u> ' + result.confirmations + '</p>' + 
+                '<p><u>Double dépense:</u> ' + result.double_spend + '</p>'
             );
         }, // end success
         error: function(request, errorType, errorMessage) {
@@ -71,8 +72,8 @@ $('#form2').on('submit', function(event) {
 }); // end submit event
 
 $('#form3').on('submit', function(event) {
-    var isAddress = /^[0-9a-zA-Z]{64}$/.test('#hashB');
-    alert(isAddress);
+    //var isAddress = /^[0-9a-zA-Z]{64}$/.test('#hashB');
+    //alert(isAddress);
     event.preventDefault();
     var input = $('#hashB').val();
     $.ajax("https://api.blockcypher.com/v1/btc/main/blocks/" + input, {
@@ -83,7 +84,9 @@ $('#form3').on('submit', function(event) {
                 '<p><u>Numéro:</u> ' + result.height + '</p>' +
                 '<p><u>Chaine:</u> ' + result.chain + '</p>' +
                 '<p><u>Fees:</u> ' + result.fees + '</p>' +
+                '<p><u>Taille:</u> ' + result.size + '</p>' +
                 '<p><u>Date:</u> ' + result.time + '</p>' +
+                '<p><u>Nonce:</u> ' + result.nonce + '</p>' + 
                 '<p><u>Nombres de transactions:</u> ' + result.n_tx + '</p>' +
                 '<p><u>Bloc précédent:</u> ' + result.prev_block + '</p>'
             );
@@ -114,7 +117,9 @@ $('#form4').on('submit', function(event) {
                 '<p><u>Numéro:</u> ' + result.height + '</p>' +
                 '<p><u>Chaine:</u> ' + result.chain + '</p>' +
                 '<p><u>Fees:</u> ' + result.fees + '</p>' +
+                '<p><u>Taille:</u> ' + result.size + '</p>' +
                 '<p><u>Date:</u> ' + result.time + '</p>' +
+                '<p><u>Nonce:</u> ' + result.nonce + '</p>' + 
                 '<p><u>Nombres de transactions:</u> ' + result.n_tx + '</p>' +
                 '<p><u>Bloc précédent:</u> ' + result.prev_block + '</p>'
             );
@@ -131,29 +136,3 @@ $('#form4').on('submit', function(event) {
         }
     }); // end poster getJSON
 }); // end submit event
-
-
-
-function rechercheA() {
-    //var addressBTC = document.getElementById("addresse");
-    /*
-    ajaxGet("https://api.blockcypher.com/v1/btc/main", function (reponse) {
-    	var objJSON = JSON.parse(myObj);
-    	document.getElementById("name").innerHTML = "test";
-    	document.getElementById("numBloc").innerHTML = objJSON.height;
-    	document.getElementById("numPeers").innerHTML = objJSON.peer_count;
-    	document.getElementById("unconfirmed").innerHTML = objJSON.unconfirmed_count;
-    });
-    */
-    /*
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-    	if (this.readyState == 4 && this.status == 200) {
-    	   // Typical action to be performed when the document is ready:
-    	   document.getElementById("resultA").innerHTML = xhttp.responseText;
-    	   alert("test");
-    	}
-    };
-    xhttp.open("GET", "https://api.blockcypher.com/v1/btc/main/blocks/0000000000000000189bba3564a63772107b5673c940c16f12662b3e8546b412", true);
-    xhttp.send();*/
-}
