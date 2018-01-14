@@ -105,8 +105,8 @@ $('#form3').on('submit', function(event) {
 }); // end submit event
 
 $('#form4').on('submit', function(event) {
-    var isAddress = /^[0-9a-zA-Z]{34}$/.test('#index');
-    alert(isAddress);
+    //var isAddress = /^[0-9a-zA-Z]{34}$/.test('#index');
+    //alert(isAddress);
     event.preventDefault();
     var input = $('#index').val();
     $.ajax("https://api.blockcypher.com/v1/btc/main/blocks/" + input, {
