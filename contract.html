@@ -55,8 +55,7 @@
                <p>Please install the Metamask Plugin or Mist Browser to use Nottario</p>
              </div>
              <div v-if="!web3Missing">
-             	<h1 class="name">PoE (Proof of Existence)</h1>
-             	<p>Certificat de Notarisation</p>
+             	<h1>Certificat de Notarisation</h1>
                <table  class="table">
                  <tr><th>Nom</th><td>{{ name }}<span v-if="name.length==32">...</span></td></tr>
                  <tr><th>Type de fichier</th><td>{{ type }}<span v-if="name.length==32">...</span></td></tr>
@@ -71,8 +70,8 @@
                  <strong>Zone de dépôt ...</strong>
                </div>
 
-               <div v-if="verified && droppedHash">VERIFIED</div>
-               <div v-if="!verified && droppedHash">NOT VERIFIED</div>
+               <div v-if="verified && droppedHash"><h1>VERIFIED</h1></div>
+               <div v-if="!verified && droppedHash"><h1>NOT VERIFIED</h1></div>
 
              </div>
            </div>
